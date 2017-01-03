@@ -1,6 +1,6 @@
 #Spot Ninja
 
-[Spot Ninja](https://spotninja.herokuapp.com/)
+[Spot Ninja API](https://spotninja.herokuapp.com/)
 
 ##Getting Started
 
@@ -24,7 +24,7 @@ nodemon
 /spots/user/:id
 
 ####POST new spot:
-/spots
+/spots/new
 
 ####POST new user:
 /users/new

@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.post('/', (req, res, next) => {
+router.post('/new', (req, res, next) => {
     let spot = {
       lat: req.body.lat,
       lng: req.body.lng,
