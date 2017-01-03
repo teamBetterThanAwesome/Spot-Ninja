@@ -28,7 +28,15 @@ router.put('/:id', (req, res) => {
     const id = req.params.id;
     spots.update(id, spot)
         .then(() => {
-          window.location = `/spots/${id}`;
+            window.location = `/spots/${id}`;
         });
 });
+
+router.delete('/id', (req, res) => {
+    const id = req.params.id;
+    spots.delete(id)
+        .then(() => {
+            window.location = ('/spots')
+        })
+})
 module.exports = router;

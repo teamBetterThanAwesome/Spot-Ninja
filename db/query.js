@@ -17,4 +17,9 @@ module.exports = {
             .where('id', id)
             .update(spot, 'id');
     },
+    delete: function(id) {
+        return knex('spot')
+            .where('id', id)
+            .del()
+    }
 };
