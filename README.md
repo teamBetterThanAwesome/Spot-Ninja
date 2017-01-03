@@ -3,6 +3,6 @@
 ##Getting Started
 
 ```sh
-./setup.#!/bin/sh
+./setup.sh
 nodemon
 ```
