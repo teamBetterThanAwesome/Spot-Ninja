@@ -3,7 +3,7 @@ var router = express.Router();
 var spots = require('../db/query.js');
 
 router.get('/', (req, res) => {
-    spots.getAll()
+    spots.getAllSpots()
         .then(result => {
             res.json(result);
         });

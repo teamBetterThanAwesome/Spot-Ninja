@@ -14,6 +14,9 @@ nodemon
 ####GET all spots:
 /spots
 
+####GET all users:
+/users
+
 ####GET single spot:
 /spots/:id
 
@@ -22,6 +25,9 @@ nodemon
 
 ####POST new spot:
 /spots
+
+####POST new user:
+/users/new
 
 ####PUT update spot:
 /spots/:id
