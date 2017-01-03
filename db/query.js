@@ -4,9 +4,13 @@ module.exports = {
     getAll: function() {
         return knex('spot');
     },
-    getById: function(id) {
+    getUserById: function(id) {
         return knex('spot')
             .where('user_id', id);
+    },
+    getSpotById: function(id) {
+      return knex('spot')
+            .where('id', id)
     },
     create: function(spot) {
         return knex('spot')
@@ -21,5 +25,5 @@ module.exports = {
         return knex('spot')
             .where('id', id)
             .del()
-    }
+    },
 };

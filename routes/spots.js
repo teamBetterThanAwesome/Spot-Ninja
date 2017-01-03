@@ -9,26 +9,51 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/:id', (req, res, next) => {
-    spots.getById(req.params.id)
+router.get('/user/:id', (req, res, next) => {
+    spots.getUserById(req.params.id)
         .then(result => {
             res.json(result)
         });
 });
 
+router.get('/:id', (req, res) => {
+    spots.getSpotById(req.params.id)
+        .then(result => {
+          res.json(result)
+        });
+});
+
 router.post('/', (req, res, next) => {
+    let spot = {
+      lat: req.body.lat,
+      lng: req.body.lng,
+      rating: req.body.rating,
+      comment: req.body.comment,
+      user_id: req.body.user_id
+    };
     spots.create(spot)
         .then(ids => {
             const id = ids[0];
-            window.location = '/spots/' + id;
+            res.json({
+              message: id
+            });
         });
 });
 
 router.put('/:id', (req, res) => {
     const id = req.params.id;
+    let spot = {
+      lat: req.body.lat,
+      lng: req.body.lng,
+      rating: req.body.rating,
+      comment: req.body.comment,
+      user_id: req.body.user_id
+    };
     spots.update(id, spot)
         .then(() => {
-            window.location = `/spots/${id}`;
+            res.json({
+              message: id
+            });
         });
 });
 
@@ -36,7 +61,9 @@ router.delete('/id', (req, res) => {
     const id = req.params.id;
     spots.delete(id)
         .then(() => {
-            window.location = ('/spots')
-        })
-})
+            res.json({
+              message: '👍🗑'
+            });
+        });
+});
 module.exports = router;
