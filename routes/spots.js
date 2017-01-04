@@ -25,11 +25,11 @@ router.get('/:id', (req, res) => {
 
 router.post('/new', (req, res, next) => {
     let spot = {
-      lat: req.body.lat,
-      lng: req.body.lng,
+      lat: req.body.userLat,
+      lng: req.body.userLng,
       rating: req.body.rating,
       comment: req.body.comment,
-      user_id: req.body.user_id
+      user_id: 1
     };
     spots.create(spot)
         .then(ids => {
