@@ -5,6 +5,8 @@ var GeoPoint = require('geopoint');
 
 console.log("index js");
 
+var request = require('request');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var userLocation = new GeoPoint(Number(req.query.userLat), Number(req.query.userLng)).boundingCoordinates(2)

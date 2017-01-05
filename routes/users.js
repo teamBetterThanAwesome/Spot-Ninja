@@ -1,9 +1,37 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const bcrypt = require('bcrypt');
+const User = require('../db/query.js');
 
-/* GET users listing. */
-router.get('/',(req, res, next) => {
-  res.send('respond with a resource');
+const router = express.Router();
+
+
+router.get('/', (req, res) => {
+  User.getAllUsers()
+        .then(result => {
+          res.json({
+            message: result
+          });
+        });
+});
+
+
+
+router.post('/new',(req, res, next) => {
+  bcrypt.hash(req.body.password, 8)
+          .then(hash => {
+            const user = {
+              email: req.body.email,
+              password: hash,
+              name: req.body.name,
+            };
+            User
+              .createNewUser(user)
+                  .then(result => {
+                    res.json({
+                      message: result
+                    });
+                  });
+          });
 });
 
 module.exports = router;

@@ -1,12 +1,19 @@
 const knex = require('./knex');
 
 module.exports = {
-    getAll: function() {
+    getAllSpots: function() {
         return knex('spot');
     },
-    getById: function(id) {
+    getAllUsers: function() {
+      return knex('user');
+    },
+    getUserById: function(id) {
         return knex('spot')
             .where('user_id', id);
+    },
+    getSpotById: function(id) {
+      return knex('spot')
+            .where('id', id)
     },
     create: function(spot) {
         return knex('spot')
@@ -21,5 +28,9 @@ module.exports = {
         return knex('spot')
             .where('id', id)
             .del()
+    },
+    createNewUser: function(user) {
+        return knex('user')
+            .insert(user, 'id');
     }
 };
