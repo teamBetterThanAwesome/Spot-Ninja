@@ -26,6 +26,7 @@ function validName(user) {
 }
 
 router.post('/signup', (req, res, next) => {
+  console.log(req.body);
   if (validUser(req.body) && validName(req.body)) {
     User
       .getOneByEmail(req.body.email)
@@ -72,6 +73,7 @@ router.post('/login', (req, res, next) => {
                       secure: req.app.get('env') != 'development'
                     });
                     res.json({
+                      id: user.id,
                       message: 'logged in!'
                     });
                   } else {
