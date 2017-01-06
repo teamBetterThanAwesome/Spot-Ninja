@@ -14,7 +14,12 @@ router.get('/', (req, res) => {
         });
 });
 
-
+router.get('/:id', (req, res, next) => {
+  User.getUserById(req.params.id)
+      .then(result => {
+        res.json(result);
+      });
+});
 
 router.post('/new',(req, res, next) => {
   bcrypt.hash(req.body.password, 8)
