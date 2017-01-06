@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
-  origin: 'https://spot-ninja.firebaseapp.com',
+  origin: 'http://localhost:8080',
   credentials: true
 }));
 
