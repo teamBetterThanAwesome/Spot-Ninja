@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var cors = require('cors')
+var cors = require('cors');
+require('dotenv').config({silent:true});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -24,7 +25,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+app.use(cors({
+  origin: 'https://spot-ninja.firebaseapp.com',
+  credentials: true
+}));
 
 
 app.use('/auth', auth);
