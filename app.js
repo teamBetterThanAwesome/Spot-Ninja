@@ -12,7 +12,9 @@ var users = require('./routes/users');
 var spots = require('./routes/spots');
 var auth = require('./auth');
 
-var authMiddleware = require('./auth/middlewar.js')
+
+var authMiddleware = require('./auth/middleware.js');
+
 
 var app = express();
 
