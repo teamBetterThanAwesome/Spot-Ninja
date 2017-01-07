@@ -9,7 +9,12 @@ router.get('/', (req, res) => {
         });
 });
 
-
+router.get('/:id', (req, res, next) => {
+  spots.getUserById(req.params.id)
+      .then(result => {
+        res.json(result);
+      });
+});
 
 router.get('/:id', (req, res) => {
     spots.getSpotById(req.params.id)

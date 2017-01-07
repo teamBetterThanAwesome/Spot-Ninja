@@ -9,7 +9,7 @@ module.exports = {
   },
   getUserById: function(id) {
     return knex('spot')
-          .where('user_id', id).first();
+          .where('user_id', id);
   },
   getSpotById: function(id) {
     return knex('spot')
