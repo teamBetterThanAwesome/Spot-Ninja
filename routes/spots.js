@@ -16,7 +16,7 @@ router.get('/:id', (req, res, next) => {
       });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/at/:id', (req, res) => {
     spots.getSpotById(req.params.id)
         .then(result => {
           res.json(result)
@@ -42,12 +42,12 @@ router.post('/new', (req, res, next) => {
 
 router.put('/:id', (req, res) => {
     const id = req.params.id;
+    console.log(req.body);
     let spot = {
       lat: req.body.lat,
       lng: req.body.lng,
       rating: req.body.rating,
       comment: req.body.comment,
-      user_id: req.body.user_id
     };
     spots.update(id, spot)
         .then(() => {
