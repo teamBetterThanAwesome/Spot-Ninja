@@ -14,8 +14,8 @@ exports.seed = function(knex, Promise) {
                     password: hash
                 }),
                 knex('user').insert({
-                    name: 'Andy',
-                    email: 'andy@email.com',
+                    name: 'Admin',
+                    email: 'admin@email.com',
                     password: hash
                 })
             ]);
