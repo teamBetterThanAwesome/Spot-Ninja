@@ -1,5 +1,7 @@
 #Spot Ninja
 
+[Spot Ninja](https://spot-ninja.firebaseapp.com/)
+
 [Spot Ninja API](https://spotninja.herokuapp.com/)
 
 ##Getting Started
@@ -17,11 +19,11 @@ nodemon
 ####GET all users:
 /users
 
-####GET single spot:
+####GET single user:
 /spots/:id
 
-####GET spots by user:
-/spots/user/:id
+####GET single spot:
+/spots/at/:id
 
 ####POST new spot:
 /spots/new
@@ -30,7 +32,7 @@ nodemon
 /users/new
 
 ####PUT update spot:
-/spots/:id
+/spots/at/:id
 
 ####DELETE single spot:
 /spots/:id
