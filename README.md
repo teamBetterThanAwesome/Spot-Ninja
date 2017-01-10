@@ -22,8 +22,8 @@ nodemon
 ####GET single user:
 /spots/:id
 
-####GET single spot:
-/spots/at/:id
+####GET user's spots:
+/user/:id
 
 ####POST new spot:
 /spots/new
